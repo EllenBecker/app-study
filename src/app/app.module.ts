@@ -13,8 +13,8 @@ import { ConteudoModule } from './conteudo/conteudo.module';
     BrowserModule,
     RouterModule,
     HttpClientModule,
-    ConteudoModule,
     AppRoutingModule,
+    ConteudoModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -13,4 +13,19 @@ export class ConteudoService {
       .post<IConteudo>('http://localhost:3000/conteudo/', conteudo)
       .toPromise();
   }
+
+  buscarUm(id: number): Promise<IConteudo | undefined> {
+    return this.httpClient
+      .get<IConteudo>(`http://localhost:3000/conteudo/${id}`)
+      .toPromise();
+  }
+
+  atualizar(conteudo: IConteudo): Promise<IConteudo | undefined> {
+    return this.httpClient
+      .patch<IConteudo>(
+        `http://localhost:3000/conteudo/${conteudo.id}`,
+        conteudo
+      )
+      .toPromise();
+  }
 }
