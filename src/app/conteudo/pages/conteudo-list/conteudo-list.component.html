@@ -1,6 +1,22 @@
-<h1>LISTAR CONTEUDO</h1>
-<div class="card-container">
-  <button type="button" class="'btn btn-primare" (click)="listarConteudos()">
-    <span> Clique aqui para listar os conteúdos </span>
-  </button>
+<div class="col-md-12">
+  <table class="table col-md-12">
+    <thead>
+      <tr>
+        <th class="col-md-1">Codigo</th>
+        <th class="col-md-2">Tipo de Tecnologia</th>
+        <th class="col-md-5">Descrição</th>
+        <th class="col-md-2">Data de Criação</th>
+        <th class="col-md-2">Data de Atualização</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let conteudo of listaConteudo.conteudo">
+        <td>{{ conteudo.id }}</td>
+        <td>{{ conteudo.tipoTecnologia }}</td>
+        <td>{{ conteudo.descricao }}</td>
+        <td>{{ conteudo.createdDate | date : "dd-MM-yyyy" }}</td>
+        <td>{{ conteudo.updateDate | date : "dd-MM-yyyy" }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

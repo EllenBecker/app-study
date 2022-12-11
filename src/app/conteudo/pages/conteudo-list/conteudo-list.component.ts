@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IConteudo } from '../../models/IConteudo.model';
+import { IListaConteudo } from '../../models/IListaConteudo';
+import { ConteudoService } from '../../services/conteudo.service';
 
 @Component({
   selector: 'conteudo-list',
@@ -7,13 +8,21 @@ import { IConteudo } from '../../models/IConteudo.model';
   styleUrls: ['./conteudo-list.component.css'],
 })
 export class ListConteudoComponent implements OnInit {
-  conteudo = {} as IConteudo;
+  listaConteudo = {} as IListaConteudo;
 
-  constructor() {}
+  constructor(private conteudoService: ConteudoService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.listarConteudos();
+  }
 
   listarConteudos() {
     console.log('listarConteudos');
+    this.listaConteudo = {
+      conteudo: [],
+    } as IListaConteudo;
+    this.conteudoService.buscarTodos().then((result) => {
+      this.listaConteudo.conteudo = !!result ? result : [];
+    });
   }
 }

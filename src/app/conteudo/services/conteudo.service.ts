@@ -28,4 +28,10 @@ export class ConteudoService {
       )
       .toPromise();
   }
+
+  buscarTodos(): Promise<Array<IConteudo> | undefined> {
+    return this.httpClient
+      .get<Array<IConteudo>>('http://localhost:3000/conteudo/')
+      .toPromise();
+  }
 }
