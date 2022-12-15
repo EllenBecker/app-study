@@ -4,15 +4,17 @@
       <tr>
         <th class="col-md-1">Codigo</th>
         <th class="col-md-2">Tipo de Tecnologia</th>
+        <th class="col-md-2">Titulo</th>
         <th class="col-md-5">Descrição</th>
-        <th class="col-md-2">Data de Criação</th>
-        <th class="col-md-2">Data de Atualização</th>
+        <th class="col-md-1">Data de Criação</th>
+        <th class="col-md-1">Data de Atualização</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let conteudo of listaConteudo.conteudo">
         <td>{{ conteudo.id }}</td>
         <td>{{ conteudo.tipoTecnologia }}</td>
+        <td>{{ conteudo.titulo }}</td>
         <td>{{ conteudo.descricao }}</td>
         <td>{{ conteudo.createdDate | date : "dd-MM-yyyy" }}</td>
         <td>{{ conteudo.updateDate | date : "dd-MM-yyyy" }}</td>
